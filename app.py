@@ -54,3 +54,26 @@ def reset():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+from flask import Flask, render_template, request, jsonify
+import random
+
+app = Flask(__name__)
+
+secret_number = random.randint(1, 100)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/guess", methods=["POST"])
+def guess():
+    global secret_number
+    number = int(request.json["number"])
+
+    if number > secret_number:
+        return jsonify({"message": "Số lớn quá"})
+    elif number < secret_number:
+        return jsonify({"message": "Số nhỏ quá"})
+    else:
+        secret_number = random.randint(1, 100)
+        return jsonify({"message": "🎉 Đúng rồi!"})
