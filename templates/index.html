@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Đoán Số</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>🎯 Game Đoán Số</h1>
+        <p>Đoán số từ <b>1 đến 100</b></p>
+
+        <input type="number" id="number" placeholder="Nhập số của anh">
+        <button onclick="sendGuess()">Đoán</button>
+        <button class="reset" onclick="resetGame()">Reset</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
